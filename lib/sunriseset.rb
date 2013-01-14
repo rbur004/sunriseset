@@ -7,7 +7,7 @@ require 'date'
 #and .vb versions too. 
 #All had the same comments, so are of a common origin.
 class SunRiseSet
-  VERSION = '0.9.0'
+  VERSION = '0.9.1'
   
   #because I live here
   LATITUDE_DEFAULT= -(36.0 + 59.0/60.0 + 27.60/3600) 
@@ -148,7 +148,7 @@ class SunRiseSet
           newjd = findNextSunrise(@julian_day, @latitude, @longitude)
           @sunrise = calcSunriseUTC(newjd) + @zone
         else
-          raise("Cannot Find Sunrise!")
+          raise "Cannot Find Sunrise!"
         end
 
       end
@@ -169,7 +169,7 @@ class SunRiseSet
           newjd = findRecentSunset(@julian_day, @latitude, @longitude)
           @sunset = calcSunsetUTC(newjd) + @zone
         else
-          raise ("Cannot Find Sunset!")
+          raise "Cannot Find Sunset!"
         end
       end
   end
