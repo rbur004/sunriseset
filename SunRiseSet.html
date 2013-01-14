@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=US-ASCII" http-equiv="Content-Type">
+
+<title>class SunRiseSet - sunriseset-0.borked Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/sunriseset.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-c-now">::now</a>
+    
+    <li><a href="#method-c-today">::today</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
+    
+    <li><a href="#method-i-version">#version</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./History_txt.html">History</a>
+  
+    <li class="file"><a href="./Manifest_txt.html">Manifest</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./SunRiseSet.html">SunRiseSet</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class SunRiseSet</h1>
+
+  <div id="description" class="description">
+    
+<p>Calculates the sun rise and sunset times, with civil, naval and
+astronomical twilight values. Not sure of the origin of the code. I have
+seen a fortran version <a
+href="http://www.srrb.noaa.gov/highlights/sunrise/program.txt">www.srrb.noaa.gov/highlights/sunrise/program.txt</a>
+a .pl <a
+href="http://www.mso.anu.edu.au/~brian/grbs/astrosubs.pl">www.mso.anu.edu.au/~brian/grbs/astrosubs.pl</a>
+and .vb versions too.  All had the same comments, so are of a common
+origin.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="ASTRO_TWILIGHT">ASTRO_TWILIGHT
+        
+        <dd class="description">
+        
+      
+        <dt id="CIVIL_TWILIGHT">CIVIL_TWILIGHT
+        
+        <dd class="description">
+        
+      
+        <dt id="LATITUDE_DEFAULT">LATITUDE_DEFAULT
+        
+        <dd class="description">
+        
+      
+        <dt id="LONGITUDE_DEFAULT">LONGITUDE_DEFAULT
+        
+        <dd class="description">
+        
+      
+        <dt id="NAVAL_TWILIGHT">NAVAL_TWILIGHT
+        
+        <dd class="description">
+        
+      
+        <dt id="SUN_RISE_SET">SUN_RISE_SET
+        
+        <dd class="description">
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-astroTwilightEnd" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">astroTwilightEnd</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] end of astronomical twilight (sky is now fully dark)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-astroTwilightStart" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">astroTwilightStart</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] Naval Twilight begins (Sun is begining to lighten the
+sky )</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-civilTwilightEnd" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">civilTwilightEnd</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] End of Civil Twilight</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-civilTwilightStart" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">civilTwilightStart</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] Civil Twilight begins</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-navalTwilightEnd" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">navalTwilightEnd</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] end of naval twilight</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-navalTwilightStart" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">navalTwilightStart</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] Naval Twilight begins</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-solNoon" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">solNoon</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] Sun is at the midpoint for today (varies throughout the
+year)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sunrise" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sunrise</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] Sun rise</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sunset" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sunset</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [DateTime] Sun set</p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(datetime, latitude=LATITUDE_DEFAULT, longitude=LONGITUDE_DEFAULT)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [SunRiseSet] Constructor for date == today @param [DateTime, jd,
+offset] datetime @param [Float] latitude @param [Float] longitude</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sunriseset.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">datetime</span>, <span class="ruby-identifier">latitude</span>=<span class="ruby-constant">LATITUDE_DEFAULT</span>, <span class="ruby-identifier">longitude</span>=<span class="ruby-constant">LONGITUDE_DEFAULT</span>)
+  <span class="ruby-ivar">@latitude</span>, <span class="ruby-ivar">@longitude</span> = <span class="ruby-identifier">latitude</span>, <span class="ruby-identifier">longitude</span>
+  <span class="ruby-ivar">@julian_date</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">jd</span>(<span class="ruby-identifier">datetime</span>.<span class="ruby-identifier">jd</span>.<span class="ruby-identifier">to_f</span>)
+  <span class="ruby-ivar">@julian_day</span> = <span class="ruby-ivar">@julian_date</span>.<span class="ruby-identifier">jd</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-comment">#Shorthand for later use, where we want this value as a float.</span>
+  <span class="ruby-ivar">@zone</span> = <span class="ruby-identifier">datetime</span>.<span class="ruby-identifier">offset</span> <span class="ruby-comment">#datetime.utc_offset/86400 #time zone offset + daylight savings as a fraction of a day</span>
+  <span class="ruby-identifier">calcSun</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-now" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">now</span><span
+            class="method-args">(latitude=LATITUDE_DEFAULT, longitude=LONGITUDE_DEFAULT)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [SunRiseSet] Constructor for date == today @param [Float] latitude
+@param [Float] longitude</p>
+          
+
+          
+          <div class="method-source-code" id="now-source">
+            <pre><span class="ruby-comment"># File lib/sunriseset.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">now</span>(<span class="ruby-identifier">latitude</span>=<span class="ruby-constant">LATITUDE_DEFAULT</span>, <span class="ruby-identifier">longitude</span>=<span class="ruby-constant">LONGITUDE_DEFAULT</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>, <span class="ruby-identifier">latitude</span>, <span class="ruby-identifier">longitude</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- now-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- now-method -->
+
+    
+      <div id="method-c-today" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">today</span><span
+            class="method-args">(latitude=LATITUDE_DEFAULT, longitude=LONGITUDE_DEFAULT)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [SunRiseSet] Constructor for date == today @param [Float] latitude
+@param [Float] longitude</p>
+          
+
+          
+          <div class="method-source-code" id="today-source">
+            <pre><span class="ruby-comment"># File lib/sunriseset.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">today</span>(<span class="ruby-identifier">latitude</span>=<span class="ruby-constant">LATITUDE_DEFAULT</span>, <span class="ruby-identifier">longitude</span>=<span class="ruby-constant">LONGITUDE_DEFAULT</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>, <span class="ruby-identifier">latitude</span>, <span class="ruby-identifier">longitude</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- today-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- today-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] dumps key attributes as a multiline string</p>
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/sunriseset.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-node">&quot;Astro Twilight #{@astroTwilightStart.strftime('%H:%M:%S %d-%m')}\n&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Naval Twilight #{@navalTwilightStart.strftime('%H:%M:%S %d-%m')}\n&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Civil Twilight #{@civilTwilightStart.strftime('%H:%M:%S %d-%m')}\n&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Sun Rises #{@sunrise.strftime('%H:%M:%S %d-%m')}\n&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Solar noon  #{@solNoon.strftime('%H:%M:%S %Z %d-%m')}\n&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Sun Sets #{@sunset.strftime('%H:%M:%S %d-%m')}\n&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;End of Civil Twilight  #{@civilTwilightEnd.strftime('%H:%M:%S %d-%m')}\n&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Naval Twilight #{@navalTwilightEnd.strftime('%H:%M:%S %d-%m')}\n&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Astro Twilight #{@astroTwilightEnd.strftime('%H:%M:%S %d-%m')}\n&quot;</span> 
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+      <div id="method-i-version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">version</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] the constant <a href="SunRiseSet.html#VERSION">VERSION</a></p>
+          
+
+          
+          <div class="method-source-code" id="version-source">
+            <pre><span class="ruby-comment"># File lib/sunriseset.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">version</span>
+  <span class="ruby-constant">VERSION</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- version-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- version-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
