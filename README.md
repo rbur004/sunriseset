@@ -1,4 +1,4 @@
-#sunriseset
+# sunriseset
 
 * http://rbur004.github.com/sunriseset/
 * Source https://github.com/rbur004/sunriseset
@@ -17,6 +17,7 @@ All had the same comments, so are of a common origin.
 ## FEATURES/PROBLEMS:
 
 
+
 ## SYNOPSIS:
 
 	require 'rubygems'
@@ -32,6 +33,7 @@ All had the same comments, so are of a common origin.
 ## REQUIREMENTS:
 
 * require 'rubygems'
+* require 'date'
 
 ## INSTALL:
 

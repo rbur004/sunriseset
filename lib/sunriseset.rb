@@ -7,16 +7,20 @@ require 'date'
 #and .vb versions too. 
 #All had the same comments, so are of a common origin.
 class SunRiseSet
-
-  VERSION='0.9.0'
+  VERSION = '0.9.0'
   
-  LATITUDE_DEFAULT= -(36.0 + 59.0/60.0 + 27.60/3600) #because I live here
-  LONGITUDE_DEFAULT= (174.0 + 29/60.0 + 13.20/3600)  #because I live here
+  #because I live here
+  LATITUDE_DEFAULT= -(36.0 + 59.0/60.0 + 27.60/3600) 
+  LONGITUDE_DEFAULT= (174.0 + 29/60.0 + 13.20/3600) 
 
-  CIVIL_TWILIGHT=96   #In degrees from the Zenith. Represents the Time when we turn car lights on and off
-  NAVAL_TWILIGHT=102  #In degrees from the Zenith. Represents the Time when we can see the first light (dawn)
-  ASTRO_TWILIGHT=108  #In degrees from the Zenith. Represents the Time when the sun is not interfering with viewing distant stars.
-  SUN_RISE_SET=90.833 #0.833 is allowing for the bending in the atmosphere.
+  #In degrees from the Zenith. Represents the Time when we turn car lights on and off
+  CIVIL_TWILIGHT=96   
+  #In degrees from the Zenith. Represents the Time when we can see the first light (dawn)
+  NAVAL_TWILIGHT=102  
+  #In degrees from the Zenith. Represents the Time when the sun is not interfering with viewing distant stars.
+  ASTRO_TWILIGHT=108  
+  #0.833 is allowing for the bending in the atmosphere.
+  SUN_RISE_SET=90.833 
 
   # @return [DateTime] Naval Twilight begins (Sun is begining to lighten the sky )
   attr_reader :astroTwilightStart
@@ -40,7 +44,7 @@ class SunRiseSet
   attr_reader :solNoon
     
   
-  # @return [SunRiseSet] Constructor for date == today
+  # @return [SunRiseSet] Constructor for any datetime and location
   # @param [DateTime, #jd, #offset] datetime
   # @param [Float] latitude
   # @param [Float] longitude
@@ -52,14 +56,14 @@ class SunRiseSet
     calcSun
   end
 
-  # @return [SunRiseSet] Constructor for date == today
+  # @return [SunRiseSet] Constructor for date == today, at location specified
   # @param [Float] latitude
   # @param [Float] longitude
   def self.today(latitude=LATITUDE_DEFAULT, longitude=LONGITUDE_DEFAULT)
     self.new(DateTime.now, latitude, longitude)
   end
         
-  # @return [SunRiseSet] Constructor for date == today
+  # @return [SunRiseSet] Constructor for date == today, at location specified
   # @param [Float] latitude
   # @param [Float] longitude
   def self.now(latitude=LATITUDE_DEFAULT, longitude=LONGITUDE_DEFAULT)
