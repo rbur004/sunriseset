@@ -1,0 +1,8 @@
+.autotest
+.yardoc
+.yard
+doc/
+pkg/
+History.txt
+lib/similar_src
+.DS_Store
