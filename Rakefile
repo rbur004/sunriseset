@@ -7,7 +7,7 @@ require 'hoe'
 Hoe.plugin :yard
 
 Hoe.spec 'sunriseset' do 
-  self.rubyforge_name = "sunriseset" 
+  #self.rubyforge_name = "sunriseset" 
   self.developer( "Rob Burrowes","r.burrowes@auckland.ac.nz")
   
   self.yard_title = 'SunRiseSet'
