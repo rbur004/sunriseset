@@ -7,7 +7,7 @@ require 'date'
 #and .vb versions too. 
 #All had the same comments, so are of a common origin.
 class SunRiseSet
-  VERSION = '0.9.1'
+  VERSION = '0.9.2'
   
   #because I live here
   LATITUDE_DEFAULT= -(36.0 + 59.0/60.0 + 27.60/3600) 
@@ -70,17 +70,25 @@ class SunRiseSet
     self.new(DateTime.now, latitude, longitude)
   end
 
+  def time_format(t)
+    if t == nil
+      "Not Found"
+    else
+      t.strftime('%H:%M:%S %d-%m')
+    end
+  end
+  
   # @return [String] dumps key attributes as a multiline string
   def to_s
-    "Astro Twilight #{@astroTwilightStart.strftime('%H:%M:%S %d-%m')}\n" +
-    "Naval Twilight #{@navalTwilightStart.strftime('%H:%M:%S %d-%m')}\n" +
-    "Civil Twilight #{@civilTwilightStart.strftime('%H:%M:%S %d-%m')}\n" +
-    "Sun Rises #{@sunrise.strftime('%H:%M:%S %d-%m')}\n" +
-    "Solar noon  #{@solNoon.strftime('%H:%M:%S %Z %d-%m')}\n" +
-    "Sun Sets #{@sunset.strftime('%H:%M:%S %d-%m')}\n" +
-    "End of Civil Twilight  #{@civilTwilightEnd.strftime('%H:%M:%S %d-%m')}\n" +
-    "Naval Twilight #{@navalTwilightEnd.strftime('%H:%M:%S %d-%m')}\n" +
-    "Astro Twilight #{@astroTwilightEnd.strftime('%H:%M:%S %d-%m')}\n" 
+    "Astro Twilight #{time_format(@astroTwilightStart)}\n" +
+    "Naval Twilight #{time_format(@navalTwilightStart)}\n" +
+    "Civil Twilight #{time_format(@civilTwilightStart)}\n" +
+    "Sun Rises #{time_format(@sunrise)}\n" +
+    "Solar noon  #{time_format(@solNoon)}\n" +
+    "Sun Sets #{time_format(@sunset)}\n" +
+    "End of Civil Twilight  #{time_format(@civilTwilightEnd)}\n" +
+    "Naval Twilight #{time_format(@navalTwilightEnd)}\n" +
+    "Astro Twilight #{time_format(@astroTwilightEnd)}\n" 
   end
   
   # @return [String] the constant VERSION
@@ -102,28 +110,17 @@ class SunRiseSet
       # Calculate sunrise for this date
       # if no sunrise is found, set flag nosunrise
 
-      nosunrise = nosunset = false
-      begin
-        @sunrise = calcSunriseUTC(@julian_day)
-        @civilTwilightStart = calcSunriseUTC( @julian_day, CIVIL_TWILIGHT)
-        @navalTwilightStart = calcSunriseUTC( @julian_day, NAVAL_TWILIGHT)
-        @astroTwilightStart = calcSunriseUTC( @julian_day, ASTRO_TWILIGHT)
-      rescue Exception
-        @sunrise = @civilTwilightStart = @navalTwilightStart = @astroTwilightStart = nil
-        nosunrise = true
-      end
+      @sunrise = calcSunriseUTC(@julian_day)
+      @civilTwilightStart = calcSunriseUTC( @julian_day, CIVIL_TWILIGHT)
+      @navalTwilightStart = calcSunriseUTC( @julian_day, NAVAL_TWILIGHT)
+      @astroTwilightStart = calcSunriseUTC( @julian_day, ASTRO_TWILIGHT)
       
       # Calculate sunset for this date
       # if no sunrise is found, set flag nosunset
-      begin
-        @sunset = calcSunsetUTC(@julian_day)
-        @civilTwilightEnd = calcSunsetUTC( @julian_day, CIVIL_TWILIGHT)
-        @navalTwilightEnd = calcSunsetUTC( @julian_day, NAVAL_TWILIGHT)
-        @astroTwilightEnd = calcSunsetUTC( @julian_day, ASTRO_TWILIGHT)
-      rescue Exception
-        @sunset = @civilTwilightEnd = @navalTwilightEnd = @astroTwilightEnd = nil
-        nosunset = true
-      end
+      @sunset = calcSunsetUTC(@julian_day)
+      @civilTwilightEnd = calcSunsetUTC( @julian_day, CIVIL_TWILIGHT)
+      @navalTwilightEnd = calcSunsetUTC( @julian_day, NAVAL_TWILIGHT)
+      @astroTwilightEnd = calcSunsetUTC( @julian_day, ASTRO_TWILIGHT)
 
       # Calculate solar noon for this date
       t = calcTimeJulianCent( @julian_day )
@@ -132,7 +129,7 @@ class SunRiseSet
 
       # No sunrise or sunset found for today
       doy = @julian_date.yday
-      if(nosunrise)
+      if(@sunrise == nil)
         if ( ((@latitude > 66.4) && (doy > 79) && (doy < 267)) ||
            ((@latitude < -66.4) && ((doy < 83) || (doy > 263))) )
            # if Northern hemisphere and spring or summer, OR
@@ -153,7 +150,7 @@ class SunRiseSet
 
       end
 
-      if(nosunset)
+      if(@sunset == nil)
         if ( ((@latitude > 66.4) && (doy > 79) && (doy < 267)) ||
           ((@latitude < -66.4) && ((doy < 83) || (doy > 263))) )
           # if Northern hemisphere and spring or summer, OR
@@ -263,8 +260,7 @@ class SunRiseSet
   def calcSunRadVector(t)
     v = calcSunTrueAnomaly(t)
     e = calcEccentricityEarthOrbit(t)
-
-    (1.000001018 * (1 - e * e)) / (1 + e * Math.cos(degToRad(v))) # in AUs
+    (1.000001018 * (1.0 - e * e)) / (1.0 + e * Math.cos(degToRad(v))) # in AUs
   end
 
   # calculate the apparent longitude of the sun
@@ -272,7 +268,6 @@ class SunRiseSet
   # @return [Float] sun's apparent longitude in degrees
   def calcSunApparentLong(t)
     o = calcSunTrueLong(t)
-
     omega = 125.04 - 1934.136 * t
     o - 0.00569 - 0.00478 * Math.sin(degToRad(omega)) # in degrees
   end
@@ -290,7 +285,6 @@ class SunRiseSet
   # @return [Float] corrected obliquity in degrees
   def calcObliquityCorrection(t)
     e0 = calcMeanObliquityOfEcliptic(t)
-
     omega = 125.04 - 1934.136 * t
     e0 + 0.00256 * Math.cos(degToRad(omega))    # in degrees
   end
@@ -301,7 +295,6 @@ class SunRiseSet
   def calcSunRtAscension(t)
     e = calcObliquityCorrection(t)
     lambda = calcSunApparentLong(t)
-
     tananum = (Math.cos(degToRad(e)) * Math.sin(degToRad(lambda)))
     tanadenom = (Math.cos(degToRad(lambda)))
     radToDeg(Math.atan2(tananum, tanadenom))  # in degrees
@@ -313,7 +306,6 @@ class SunRiseSet
   def calcSunDeclination(t)
     e = calcObliquityCorrection(t)
     lambda = calcSunApparentLong(t)
-
     sint = Math.sin(degToRad(e)) * Math.sin(degToRad(lambda))
     radToDeg(Math.asin(sint)) # in degrees
   end
@@ -322,7 +314,6 @@ class SunRiseSet
   # @param [Float] t  number of Julian centuries since J2000.0
   # @return [Float] equation of time in minutes of time
   def calcEquationOfTime(t)
-
     epsilon = calcObliquityCorrection(t)
     l0 = calcGeomMeanLongSun(t)
     e = calcEccentricityEarthOrbit(t)
@@ -337,7 +328,8 @@ class SunRiseSet
     sin4l0 = Math.sin(4.0 * degToRad(l0))
     sin2m  = Math.sin(2.0 * degToRad(m))
 
-    radToDeg(y * sin2l0 - 2.0 * e * sinm + 4.0 * e * y * sinm * cos2l0  - 0.5 * y * y * sin4l0 - 1.25 * e * e * sin2m)*4.0  # in minutes of time
+    radToDeg(y * sin2l0 - 2.0 * e * sinm + 4.0 * e * y * sinm * cos2l0 -
+                0.5 * y * y * sin4l0 - 1.25 * e * e * sin2m)*4.0  # in minutes of time
   end
 
   # calculate the hour angle of the sun at sunrise for the latitude
@@ -346,11 +338,14 @@ class SunRiseSet
   # @return [Float] hour angle of sunrise in radians
   #  0.833 is an approximation of the reflaction caused by the atmosphere
   def calcHourAngleSunrise(solarDec, angle=SUN_RISE_SET)
-    latRad = degToRad(@latitude)
+    latRad = degToRad(@latitude) 
     sdRad  = degToRad(solarDec)
+    #puts "latRad = #{radToDeg(latRad)}, sdRad = #{radToDeg(sdRad)}, angle = #{angle}"
 
-    #HAarg = (Math.cos(degToRad(angle + 0.833))/(Math.cos(latRad)*Math.cos(sdRad))-Math.tan(latRad) * Math.tan(sdRad))
-    (Math.acos(Math.cos(degToRad(angle))/(Math.cos(latRad)*Math.cos(sdRad))-Math.tan(latRad) * Math.tan(sdRad)))  # in radians
+    #ha_arg = Math.cos(degToRad(angle + 0.833))/(Math.cos(latRad)*Math.cos(sdRad))-Math.tan(latRad) * Math.tan(sdRad)
+    ha_arg = Math.cos(degToRad(angle))/
+            (Math.cos(latRad)*Math.cos(sdRad)) - Math.tan(latRad) * Math.tan(sdRad)
+    Math.acos(ha_arg)  # in radians
   end
 
   # calculate the hour angle of the sun at sunset for the
@@ -367,36 +362,39 @@ class SunRiseSet
   # @param [SUN_RISE_SET,CIVIL_TWILIGHT,NAVAL_TWILIGHT,ASTRO_TWILIGHT] angle
   # @return [DateTime]  Date and Time of event
   def calcSunriseUTC( julian_day, angle=SUN_RISE_SET)
+    begin
+      t = calcTimeJulianCent( julian_day )
 
-    t = calcTimeJulianCent( julian_day )
+      # *** Find the time of solar noon at the location, and use
+          #     that declination. This is better than start of the
+          #     Julian day
 
-    # *** Find the time of solar noon at the location, and use
-        #     that declination. This is better than start of the
-        #     Julian day
+      noonmin = calcSolNoonUTC(t)
+      tnoon = calcTimeJulianCent( julian_day+noonmin/1440.0)
 
-    noonmin = calcSolNoonUTC(t)
-    tnoon = calcTimeJulianCent( julian_day+noonmin/1440.0)
+      # *** First pass to approximate sunrise (using solar noon)
 
-    # *** First pass to approximate sunrise (using solar noon)
+      eqTime = calcEquationOfTime(tnoon)
+      solarDec = calcSunDeclination(tnoon)
+      hourAngle = calcHourAngleSunrise(solarDec,angle)
+      delta =  -@longitude - radToDeg(hourAngle)
+      timeDiff = 4 * delta; # in minutes of time
+      timeUTC = 720 + timeDiff - eqTime;  # in minutes
 
-    eqTime = calcEquationOfTime(tnoon)
-    solarDec = calcSunDeclination(tnoon)
-    hourAngle = calcHourAngleSunrise(solarDec,angle)
-    delta =  -@longitude - radToDeg(hourAngle)
-    timeDiff = 4 * delta; # in minutes of time
-    timeUTC = 720 + timeDiff - eqTime;  # in minutes
+      # *** Second pass includes fractional jday in gamma calc
 
-    # *** Second pass includes fractional jday in gamma calc
+      newt = calcTimeJulianCent(calcJDFromJulianCent(t) + timeUTC/1440.0)
+      eqTime = calcEquationOfTime(newt)
+      solarDec = calcSunDeclination(newt)
+      hourAngle = calcHourAngleSunrise(solarDec,angle)
+      delta = -@longitude - radToDeg(hourAngle)
+      timeDiff = 4 * delta
+      timeUTC = 720 + timeDiff - eqTime; # in minutes
 
-    newt = calcTimeJulianCent(calcJDFromJulianCent(t) + timeUTC/1440.0)
-    eqTime = calcEquationOfTime(newt)
-    solarDec = calcSunDeclination(newt)
-    hourAngle = calcHourAngleSunrise(solarDec,angle)
-    delta = -@longitude - radToDeg(hourAngle)
-    timeDiff = 4 * delta
-    timeUTC = 720 + timeDiff - eqTime; # in minutes
-
-    to_datetime(julian_day,timeUTC)
+      to_datetime(julian_day,timeUTC)
+    rescue Math::DomainError => error
+      return nil #didn't find a Sunrise today. Will be raised by 
+    end
   end
 
   # calculate the Universal Coordinated Time (UTC) of solar
@@ -404,7 +402,6 @@ class SunRiseSet
   # @param [Float] t  number of Julian centuries since J2000.0
   # @return [Float] time in minutes from zero Z
   def calcSolNoonUTC(t)
-
     # First pass uses approximate solar noon to calculate eqtime
     tnoon = calcTimeJulianCent(calcJDFromJulianCent(t) - @longitude/360.0)
     eqTime = calcEquationOfTime(tnoon)
@@ -424,38 +421,41 @@ class SunRiseSet
   # @param [SUN_RISE_SET,CIVIL_TWILIGHT,NAVAL_TWILIGHT,ASTRO_TWILIGHT] angle
   # @return [DateTime]  Date and Time of event
   def calcSunsetUTC(julian_day, angle=SUN_RISE_SET)
+    begin
+      t = calcTimeJulianCent(julian_day)
 
-    t = calcTimeJulianCent(julian_day)
+      # *** Find the time of solar noon at the location, and use
+          #     that declination. This is better than start of the
+          #     Julian day
 
-    # *** Find the time of solar noon at the location, and use
-        #     that declination. This is better than start of the
-        #     Julian day
+      noonmin = calcSolNoonUTC(t)
+      tnoon = calcTimeJulianCent(julian_day+noonmin/1440.0)
 
-    noonmin = calcSolNoonUTC(t)
-    tnoon = calcTimeJulianCent(julian_day+noonmin/1440.0)
+      # First calculates sunrise and approx length of day
 
-    # First calculates sunrise and approx length of day
+      eqTime = calcEquationOfTime(tnoon)
+      solarDec = calcSunDeclination(tnoon)
+      hourAngle = calcHourAngleSunset(solarDec, angle)
 
-    eqTime = calcEquationOfTime(tnoon)
-    solarDec = calcSunDeclination(tnoon)
-    hourAngle = calcHourAngleSunset(solarDec, angle)
+      delta = -@longitude - radToDeg(hourAngle)
+      timeDiff = 4 * delta
+      timeUTC = 720 + timeDiff - eqTime
 
-    delta = -@longitude - radToDeg(hourAngle)
-    timeDiff = 4 * delta
-    timeUTC = 720 + timeDiff - eqTime
+      # first pass used to include fractional day in gamma calc
 
-    # first pass used to include fractional day in gamma calc
+      newt = calcTimeJulianCent(calcJDFromJulianCent(t) + timeUTC/1440.0)
+      eqTime = calcEquationOfTime(newt)
+      solarDec = calcSunDeclination(newt)
+      hourAngle = calcHourAngleSunset(solarDec, angle)
 
-    newt = calcTimeJulianCent(calcJDFromJulianCent(t) + timeUTC/1440.0)
-    eqTime = calcEquationOfTime(newt)
-    solarDec = calcSunDeclination(newt)
-    hourAngle = calcHourAngleSunset(solarDec, angle)
+      delta = -@longitude - radToDeg(hourAngle)
+      timeDiff = 4 * delta
+      timeUTC = 720 + timeDiff - eqTime; # in minutes
 
-    delta = -@longitude - radToDeg(hourAngle)
-    timeDiff = 4 * delta
-    timeUTC = 720 + timeDiff - eqTime; # in minutes
-
-    to_datetime(julian_day,timeUTC)
+      to_datetime(julian_day,timeUTC)
+    rescue Math::DomainError => error
+      return nil # no Sunset
+    end
   end
 
   # calculate the julian day of the most recent sunrise
