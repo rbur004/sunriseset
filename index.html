@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: README
   
@@ -10,14 +10,14 @@
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.README.html";
 </script>
 
 
@@ -61,30 +61,38 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><h1>sunriseset</h1>
+    <div id="content"><div id='filecontents'>
+<h1 id="label-sunriseset">sunriseset</h1>
+<ul><li>
+<p><a
+href="http://rbur004.github.com/sunriseset">rbur004.github.com/sunriseset</a>/</p>
+</li><li>
+<p>Source <a
+href="https://github.com/rbur004/sunriseset">github.com/rbur004/sunriseset</a></p>
+</li><li>
+<p>Gem <a
+href="https://rubygems.org/gems/sunriseset">rubygems.org/gems/sunriseset</a></p>
+</li></ul>
 
-<ul>
-<li><a href="http://rbur004.github.com/sunriseset/">http://rbur004.github.com/sunriseset/</a></li>
-<li>Source <a href="https://github.com/rbur004/sunriseset">https://github.com/rbur004/sunriseset</a></li>
-<li>Gem <a href="https://rubygems.org/gems/sunriseset">https://rubygems.org/gems/sunriseset</a></li>
-</ul>
+<h2 id="label-DESCRIPTION%3A">DESCRIPTION:</h2>
 
-<h2>DESCRIPTION:</h2>
+<p>SunRiseSet is a ruby class calculates the times of the sunrise, solar noon
+and sunset. It also calculates astronomical, naval and civil twilight
+times.</p>
 
-<p>SunRiseSet is a ruby class calculates the times of the sunrise, solar noon and sunset.
-It also calculates astronomical, naval and civil twilight times.</p>
+<p>Not sure of the origin of the algorithm. I have seen a fortran version <a
+href="http://www.srrb.noaa.gov/highlights/sunrise/program.txt">www.srrb.noaa.gov/highlights/sunrise/program.txt</a>
+a .pl <a
+href="www.mso.anu.edu.au/~brian/grbs/astrosubs.pl">www.mso.anu.edu.au/~brian/grbs/astrosubs.pl</a>
+and .vb versions for spreadsheets too. All had the same comments, so are of
+a common origin.</p>
 
-<p>Not sure of the origin of the algorithm.
-I have seen a fortran version <a href="http://www.srrb.noaa.gov/highlights/sunrise/program.txt">http://www.srrb.noaa.gov/highlights/sunrise/program.txt</a>
-a .pl <a href="http://www.mso.anu.edu.au/%7Ebrian/grbs/astrosubs.pl">www.mso.anu.edu.au/~brian/grbs/astrosubs.pl</a> and .vb versions for spreadsheets too. 
-All had the same comments, so are of a common origin.</p>
+<h2 id="label-FEATURES%2FPROBLEMS%3A">FEATURES/PROBLEMS:</h2>
 
-<h2>FEATURES/PROBLEMS:</h2>
+<h2 id="label-SYNOPSIS%3A">SYNOPSIS:</h2>
 
-<h2>SYNOPSIS:</h2>
-
-<pre class="code ruby"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubygems</span><span class='tstring_end'>'</span></span>
-<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>sunriseset</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rubygems</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sunriseset</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='id identifier rubyid_latitude'>latitude</span> <span class='op'>=</span> <span class='op'>-</span><span class='float'>36.991</span>
 <span class='id identifier rubyid_longitude'>longitude</span> <span class='op'>=</span> <span class='float'>174.487</span>
@@ -94,70 +102,80 @@ All had the same comments, so are of a common origin.</p>
 <span class='id identifier rubyid_vc'>vc</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='comment'>#or access individual attributes and use DateTime#strftime to format appropriately
 </span></code></pre>
 
-<h2>REQUIREMENTS:</h2>
+<h2 id="label-REQUIREMENTS%3A">REQUIREMENTS:</h2>
+<ul><li>
+<p>require &#39;rubygems&#39;</p>
+</li><li>
+<p>require &#39;date&#39;</p>
+</li></ul>
 
-<ul>
-<li>require &#39;rubygems&#39;</li>
-<li>require &#39;date&#39;</li>
-</ul>
+<h2 id="label-INSTALL%3A">INSTALL:</h2>
+<ul><li>
+<p>sudo gem install versioncheck</p>
+</li></ul>
 
-<h2>INSTALL:</h2>
-
-<ul>
-<li>sudo gem install versioncheck</li>
-</ul>
-
-<h2>LICENSE:</h2>
+<h2 id="label-LICENSE%3A">LICENSE:</h2>
 
 <p>(The MIT License)</p>
 
-<p>Copyright (c) 2013</p>
-
-<ol>
-<li><p>You may make and give away verbatim copies of the source form of the
-software without restriction, provided that you duplicate all of the
-original copyright notices and associated disclaimers.</p></li>
-<li><p>You may modify your copy of the software in any way, provided that
-you do at least ONE of the following:</p>
-
-<ul>
-<li> place your modifications in the Public Domain or otherwise make them Freely Available, such as by posting said modifications to Usenet or an equivalent medium, or by allowing the author to include your modifications in the software.</li>
-<li> use the modified software only within your corporation or organization.</li>
-<li> rename any non-standard executables so the names do not conflict with standard executables, which must also be provided.</li>
-<li> make other distribution arrangements with the author.</li>
-</ul></li>
-<li><p>You may distribute the software in object code or executable form, provided that you do at least ONE of the following:</p>
-
-<ul>
-<li>distribute the executables and library files of the software,
-together with instructions (in the manual page or equivalent)
-on where to get the original distribution.</li>
-<li>accompany the distribution with the machine-readable source of
-the software.</li>
-<li>give non-standard executables non-standard names, with
-instructions on where to get the original software distribution.</li>
-<li>make other distribution arrangements with the author.</li>
-</ul></li>
-<li><p>You may modify and include the part of the software into any other
-software (possibly commercial).  But some files or libraries used by
-code in this distribution  may not written by the author, so that they 
-are not under these terms.</p></li>
-<li><p>The scripts and library files supplied as input to or produced as 
-output from the software do not automatically fall under the
-copyright of the software, but belong to whomever generated them, 
-and may be sold commercially, and may be aggregated with this
-software.</p></li>
-<li><p>THIS SOFTWARE IS PROVIDED &quot;AS IS&quot; AND WITHOUT ANY EXPRESS OR
-IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE.</p></li>
-</ol>
+<p>Copyright © 2013</p>
+<ol><li>
+<p>You may make and give away verbatim copies of the source form of the 
+software without restriction, provided that you duplicate all of the 
+original copyright notices and associated disclaimers.</p>
+</li><li>
+<p>You may modify your copy of the software in any way, provided that  you do
+at least ONE of the following:</p>
+<ul><li>
+<p>place your modifications in the Public Domain or otherwise make them Freely
+Available, such as by posting said modifications to Usenet or an equivalent
+medium, or by allowing the author to include your modifications in the
+software.</p>
+</li><li>
+<p>use the modified software only within your corporation or organization.</p>
+</li><li>
+<p>rename any non-standard executables so the names do not conflict with
+standard executables, which must also be provided.</p>
+</li><li>
+<p>make other distribution arrangements with the author.</p>
+</li></ul>
+</li><li>
+<p>You may distribute the software in object code or executable form, provided
+that you do at least ONE of the following:</p>
+<ul><li>
+<p>distribute the executables and library files of the software,  together
+with instructions (in the manual page or equivalent)  on where to get the
+original distribution.</p>
+</li><li>
+<p>accompany the distribution with the machine-readable source of  the
+software.</p>
+</li><li>
+<p>give non-standard executables non-standard names, with instructions on
+where to get the original software distribution.</p>
+</li><li>
+<p>make other distribution arrangements with the author.</p>
+</li></ul>
+</li><li>
+<p>You may modify and include the part of the software into any other 
+software (possibly commercial). But some files or libraries used by  code
+in this distribution may not written by the author, so that they  are not
+under these terms.</p>
+</li><li>
+<p>The scripts and library files supplied as input to or produced as  output
+from the software do not automatically fall under the  copyright of the
+software, but belong to whomever generated them,  and may be sold
+commercially, and may be aggregated with this  software.</p>
+</li><li>
+<p>THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR  IMPLIED
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED  WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR  PURPOSE.</p>
+</li></ol>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Jan 14 14:24:58 2013 by
+  Generated on Fri May 22 14:34:30 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.1.5).
 </div>
 
   </body>
