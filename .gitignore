@@ -6,3 +6,5 @@ pkg/
 History.txt
 lib/similar_src
 .DS_Store
+lib/.DS_Store
+test/.DS_Store
