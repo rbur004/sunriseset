@@ -136,14 +136,14 @@ class SunRiseSet
            # if Southern hemisphere and fall or winter, use
            # previous sunrise and next sunset
           newjd = findRecentSunrise(@julian_day, @latitude, @longitude)
-          @sunrise = calcSunriseUTC(newjd) + @zone
+          @sunrise = calcSunriseUTC(newjd) # + @zone
         elsif ( ((@latitude > 66.4) && ((doy < 83) || (doy > 263))) ||
           ((@latitude < -66.4) && (doy > 79) && (doy < 267)) )
           # if Northern hemisphere and fall or winter, OR
           # if Southern hemisphere and spring or summer, use
           # next sunrise and previous sunset
           newjd = findNextSunrise(@julian_day, @latitude, @longitude)
-          @sunrise = calcSunriseUTC(newjd) + @zone
+          @sunrise = calcSunriseUTC(newjd) # + @zone
         else
           raise "Cannot Find Sunrise!"
         end
@@ -157,14 +157,14 @@ class SunRiseSet
           # if Southern hemisphere and fall or winter, use
           # previous sunrise and next sunset
           newjd = findNextSunset(@julian_day, @latitude, @longitude)
-          @sunset = calcSunsetUTC(newjd) + @zone
+          @sunset = calcSunsetUTC(newjd) #+ @zone
         elsif ( ((@latitude > 66.4) && ((doy < 83) || (doy > 263))) ||
           ((@latitude < -66.4) && (doy > 79) && (doy < 267)) )
           # if Northern hemisphere and fall or winter, OR
           # if Southern hemisphere and spring or summer, use
           # next sunrise and last sunset
           newjd = findRecentSunset(@julian_day, @latitude, @longitude)
-          @sunset = calcSunsetUTC(newjd) + @zone
+          @sunset = calcSunsetUTC(newjd) #+ @zone
         else
           raise "Cannot Find Sunset!"
         end
@@ -518,7 +518,7 @@ class SunRiseSet
   # @param [Float] minutes
   # @return [DateTime] 
   def to_datetime(x,minutes)
-    jd = DateTime.jd(@julian_day)  + (minutes/1440.0)  + @zone 
+    jd = DateTime.jd(@julian_day)  + (minutes/1440.0) #+ @zone 
   end
   
 end
