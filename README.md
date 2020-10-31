@@ -1,8 +1,8 @@
 # sunriseset
 
-* http://rbur004.github.io/sunriseset/
-* Source https://github.com/rbur004/sunriseset
-* Gem https://rubygems.org/gems/sunriseset
+* Docs :: http://rbur004.github.io/sunriseset/
+* Source :: https://github.com/rbur004/sunriseset
+* Gem :: https://rubygems.org/gems/sunriseset
 
 ## DESCRIPTION:
 
