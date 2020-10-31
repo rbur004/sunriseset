@@ -1,23 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: SunRiseSet
   
-    &mdash; SunRiseSet
+    &mdash; sunriseset
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+<script type="text/javascript">
+  pathId = "SunRiseSet";
   relpath = '';
-  framesUrl = "frames.html#!SunRiseSet.html";
 </script>
 
 
@@ -28,51 +27,48 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="_index.html">Index (S)</a> &raquo;
     
     
     <span class="title">SunRiseSet</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><h1>Class: SunRiseSet
+      <div id="content"><h1>Class: SunRiseSet
   
   
   
 </h1>
-
-<dl class="box">
+<div class="box_info">
   
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
       <span class="inheritName">Object</span>
       
         <ul class="fullTree">
@@ -83,32 +79,30 @@
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
       
-      </dd>
-    
+    </dd>
+  </dl>
   
-  
-    
-  
-    
+
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/sunriseset.rb</dd>
   
-</dl>
-<div class="clear"></div>
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/sunriseset.rb</dd>
+  </dl>
+  
+</div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Calculates the sun rise and sunset times, with civil, naval and
-astronomical twilight values. Not sure of the origin of the code. I have
-seen a fortran version <a
-href="http://www.srrb.noaa.gov/highlights/sunrise/program.txt">www.srrb.noaa.gov/highlights/sunrise/program.txt</a>
-a .pl <a
-href="www.mso.anu.edu.au/~brian/grbs/astrosubs.pl">www.mso.anu.edu.au/~brian/grbs/astrosubs.pl</a>
-and .vb versions too. All had the same comments, so are of a common origin.</p>
+<p>Calculates the sun rise and sunset times, with civil, naval and astronomical twilight values. Not sure of the origin of the code. I have seen a fortran version <a href="http://www.srrb.noaa.gov/highlights/sunrise/program.txt">www.srrb.noaa.gov/highlights/sunrise/program.txt</a> a .pl <a href="www.mso.anu.edu.au/~brian/grbs/astrosubs.pl">www.mso.anu.edu.au/~brian/grbs/astrosubs.pl</a> and .vb versions too. All had the same comments, so are of a common origin.</p>
 
 
   </div>
@@ -117,8 +111,12 @@ and .vb versions too. All had the same comments, so are of a common origin.</p>
   
 
 </div>
-  <h2>Constant Summary</h2>
   
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
     <dl class="constants">
       
         <dt id="VERSION-constant" class="">VERSION =
@@ -151,8 +149,7 @@ and .vb versions too. All had the same comments, so are of a common origin.</p>
           <div class="docstring">
   <div class="discussion">
     
-<p>In degrees from the Zenith. Represents the Time when we turn car lights on
-and off</p>
+<p>In degrees from the Zenith. Represents the Time when we turn car lights on and off</p>
 
 
   </div>
@@ -168,8 +165,7 @@ and off</p>
           <div class="docstring">
   <div class="discussion">
     
-<p>In degrees from the Zenith. Represents the Time when we can see the first
-light (dawn)</p>
+<p>In degrees from the Zenith. Represents the Time when we can see the first light (dawn)</p>
 
 
   </div>
@@ -185,8 +181,7 @@ light (dawn)</p>
           <div class="docstring">
   <div class="discussion">
     
-<p>In degrees from the Zenith. Represents the Time when the sun is not
-interfering with viewing distant stars.</p>
+<p>In degrees from the Zenith. Represents the Time when the sun is not interfering with viewing distant stars.</p>
 
 
   </div>
@@ -220,13 +215,13 @@ interfering with viewing distant stars.</p>
 
 
 
-  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
   <ul class="summary">
     
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#astroTwilightEnd-instance_method" title="#astroTwilightEnd (instance method)">- (DateTime) <strong>astroTwilightEnd</strong> </a>
+      <a href="#astroTwilightEnd-instance_method" title="#astroTwilightEnd (instance method)">#<strong>astroTwilightEnd</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -255,7 +250,7 @@ interfering with viewing distant stars.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#astroTwilightStart-instance_method" title="#astroTwilightStart (instance method)">- (DateTime) <strong>astroTwilightStart</strong> </a>
+      <a href="#astroTwilightStart-instance_method" title="#astroTwilightStart (instance method)">#<strong>astroTwilightStart</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -284,7 +279,7 @@ interfering with viewing distant stars.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#civilTwilightEnd-instance_method" title="#civilTwilightEnd (instance method)">- (DateTime) <strong>civilTwilightEnd</strong> </a>
+      <a href="#civilTwilightEnd-instance_method" title="#civilTwilightEnd (instance method)">#<strong>civilTwilightEnd</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -313,7 +308,7 @@ interfering with viewing distant stars.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#civilTwilightStart-instance_method" title="#civilTwilightStart (instance method)">- (DateTime) <strong>civilTwilightStart</strong> </a>
+      <a href="#civilTwilightStart-instance_method" title="#civilTwilightStart (instance method)">#<strong>civilTwilightStart</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -342,7 +337,7 @@ interfering with viewing distant stars.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#navalTwilightEnd-instance_method" title="#navalTwilightEnd (instance method)">- (DateTime) <strong>navalTwilightEnd</strong> </a>
+      <a href="#navalTwilightEnd-instance_method" title="#navalTwilightEnd (instance method)">#<strong>navalTwilightEnd</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -371,7 +366,7 @@ interfering with viewing distant stars.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#navalTwilightStart-instance_method" title="#navalTwilightStart (instance method)">- (DateTime) <strong>navalTwilightStart</strong> </a>
+      <a href="#navalTwilightStart-instance_method" title="#navalTwilightStart (instance method)">#<strong>navalTwilightStart</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -400,7 +395,7 @@ interfering with viewing distant stars.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#solNoon-instance_method" title="#solNoon (instance method)">- (DateTime) <strong>solNoon</strong> </a>
+      <a href="#solNoon-instance_method" title="#solNoon (instance method)">#<strong>solNoon</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -429,7 +424,7 @@ interfering with viewing distant stars.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sunrise-instance_method" title="#sunrise (instance method)">- (DateTime) <strong>sunrise</strong> </a>
+      <a href="#sunrise-instance_method" title="#sunrise (instance method)">#<strong>sunrise</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -458,7 +453,7 @@ interfering with viewing distant stars.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sunset-instance_method" title="#sunset (instance method)">- (DateTime) <strong>sunset</strong> </a>
+      <a href="#sunset-instance_method" title="#sunset (instance method)">#<strong>sunset</strong>  &#x21d2; DateTime </a>
     
 
     
@@ -492,7 +487,7 @@ interfering with viewing distant stars.</p>
   
     <h2>
       Class Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -500,7 +495,7 @@ interfering with viewing distant stars.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#now-class_method" title="now (class method)">+ (SunRiseSet) <strong>now</strong>(latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT) </a>
+      <a href="#now-class_method" title="now (class method)">.<strong>now</strong>(latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT)  &#x21d2; SunRiseSet </a>
     
 
     
@@ -524,7 +519,7 @@ interfering with viewing distant stars.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#today-class_method" title="today (class method)">+ (SunRiseSet) <strong>today</strong>(latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT) </a>
+      <a href="#today-class_method" title="today (class method)">.<strong>today</strong>(latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT)  &#x21d2; SunRiseSet </a>
     
 
     
@@ -549,7 +544,7 @@ interfering with viewing distant stars.</p>
   
     <h2>
       Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -557,7 +552,7 @@ interfering with viewing distant stars.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (SunRiseSet) <strong>initialize</strong>(datetime, latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(datetime, latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT)  &#x21d2; SunRiseSet </a>
     
 
     
@@ -583,7 +578,7 @@ interfering with viewing distant stars.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#time_format-instance_method" title="#time_format (instance method)">- (Object) <strong>time_format</strong>(t) </a>
+      <a href="#time_format-instance_method" title="#time_format (instance method)">#<strong>time_format</strong>(t)  &#x21d2; Object </a>
     
 
     
@@ -605,7 +600,7 @@ interfering with viewing distant stars.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
     
 
     
@@ -629,7 +624,7 @@ interfering with viewing distant stars.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#version-instance_method" title="#version (instance method)">- (String) <strong>version</strong> </a>
+      <a href="#version-instance_method" title="#version (instance method)">#<strong>version</strong>  &#x21d2; String </a>
     
 
     
@@ -659,7 +654,7 @@ interfering with viewing distant stars.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="SunRiseSet (class)">SunRiseSet</a></span></tt>) <strong>initialize</strong>(datetime, latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT) 
+    #<strong>initialize</strong>(datetime, latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT)  &#x21d2; <tt><span class='object_link'><a href="" title="SunRiseSet (class)">SunRiseSet</a></span></tt> 
   
 
   
@@ -668,7 +663,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Constructor for any datetime and location</p>
+<p>Returns Constructor for any datetime and location.</p>
 
 
   </div>
@@ -756,7 +751,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details first">
   <h3 class="signature first" id="astroTwilightEnd-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>astroTwilightEnd</strong>  <span class="extras">(readonly)</span>
+    #<strong>astroTwilightEnd</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -765,7 +760,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns end of astronomical twilight (sky is now fully dark)</p>
+<p>Returns end of astronomical twilight (sky is now fully dark).</p>
 
 
   </div>
@@ -817,7 +812,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="astroTwilightStart-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>astroTwilightStart</strong>  <span class="extras">(readonly)</span>
+    #<strong>astroTwilightStart</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -826,7 +821,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Naval Twilight begins (Sun is begining to lighten the sky )</p>
+<p>Returns Naval Twilight begins (Sun is begining to lighten the sky ).</p>
 
 
   </div>
@@ -878,7 +873,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="civilTwilightEnd-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>civilTwilightEnd</strong>  <span class="extras">(readonly)</span>
+    #<strong>civilTwilightEnd</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -887,7 +882,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns End of Civil Twilight</p>
+<p>Returns End of Civil Twilight.</p>
 
 
   </div>
@@ -939,7 +934,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="civilTwilightStart-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>civilTwilightStart</strong>  <span class="extras">(readonly)</span>
+    #<strong>civilTwilightStart</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -948,7 +943,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Civil Twilight begins</p>
+<p>Returns Civil Twilight begins.</p>
 
 
   </div>
@@ -1000,7 +995,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="navalTwilightEnd-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>navalTwilightEnd</strong>  <span class="extras">(readonly)</span>
+    #<strong>navalTwilightEnd</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -1009,7 +1004,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns end of naval twilight</p>
+<p>Returns end of naval twilight.</p>
 
 
   </div>
@@ -1061,7 +1056,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="navalTwilightStart-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>navalTwilightStart</strong>  <span class="extras">(readonly)</span>
+    #<strong>navalTwilightStart</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -1070,7 +1065,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Naval Twilight begins</p>
+<p>Returns Naval Twilight begins.</p>
 
 
   </div>
@@ -1122,7 +1117,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="solNoon-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>solNoon</strong>  <span class="extras">(readonly)</span>
+    #<strong>solNoon</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -1131,7 +1126,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Sun is at the midpoint for today (varies throughout the year)</p>
+<p>Returns Sun is at the midpoint for today (varies throughout the year).</p>
 
 
   </div>
@@ -1183,7 +1178,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="sunrise-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>sunrise</strong>  <span class="extras">(readonly)</span>
+    #<strong>sunrise</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -1192,7 +1187,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Sun rise</p>
+<p>Returns Sun rise.</p>
 
 
   </div>
@@ -1244,7 +1239,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="sunset-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>sunset</strong>  <span class="extras">(readonly)</span>
+    #<strong>sunset</strong>  &#x21d2; <tt>DateTime</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -1253,7 +1248,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Sun set</p>
+<p>Returns Sun set.</p>
 
 
   </div>
@@ -1310,7 +1305,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details first">
   <h3 class="signature first" id="now-class_method">
   
-    + (<tt><span class='object_link'><a href="" title="SunRiseSet (class)">SunRiseSet</a></span></tt>) <strong>now</strong>(latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT) 
+    .<strong>now</strong>(latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT)  &#x21d2; <tt><span class='object_link'><a href="" title="SunRiseSet (class)">SunRiseSet</a></span></tt> 
   
 
   
@@ -1319,7 +1314,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Constructor for date == today, at location specified</p>
+<p>Returns Constructor for date == today, at location specified.</p>
 
 
   </div>
@@ -1399,7 +1394,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="today-class_method">
   
-    + (<tt><span class='object_link'><a href="" title="SunRiseSet (class)">SunRiseSet</a></span></tt>) <strong>today</strong>(latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT) 
+    .<strong>today</strong>(latitude = LATITUDE_DEFAULT, longitude = LONGITUDE_DEFAULT)  &#x21d2; <tt><span class='object_link'><a href="" title="SunRiseSet (class)">SunRiseSet</a></span></tt> 
   
 
   
@@ -1408,7 +1403,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns Constructor for date == today, at location specified</p>
+<p>Returns Constructor for date == today, at location specified.</p>
 
 
   </div>
@@ -1494,7 +1489,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details first">
   <h3 class="signature first" id="time_format-instance_method">
   
-    - (<tt>Object</tt>) <strong>time_format</strong>(t) 
+    #<strong>time_format</strong>(t)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1532,7 +1527,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    - (<tt>String</tt>) <strong>to_s</strong> 
+    #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1541,7 +1536,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns dumps key attributes as a multiline string</p>
+<p>Returns dumps key attributes as a multiline string.</p>
 
 
   </div>
@@ -1607,7 +1602,7 @@ interfering with viewing distant stars.</p>
       <div class="method_details ">
   <h3 class="signature " id="version-instance_method">
   
-    - (<tt>String</tt>) <strong>version</strong> 
+    #<strong>version</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1616,7 +1611,7 @@ interfering with viewing distant stars.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the constant VERSION</p>
+<p>Returns the constant VERSION.</p>
 
 
   </div>
@@ -1656,7 +1651,7 @@ interfering with viewing distant stars.</p>
       <pre class="code"><span class="info file"># File 'lib/sunriseset.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
-  <span class='const'>VERSION</span>
+  <span class='const'><span class='object_link'><a href="#VERSION-constant" title="SunRiseSet::VERSION (constant)">VERSION</a></span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1667,11 +1662,12 @@ interfering with viewing distant stars.</p>
 
 </div>
 
-    <div id="footer">
-  Generated on Sat Jun 18 15:12:47 2016 by
+      <div id="footer">
+  Generated on Sat Oct 31 21:57:51 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.9.25 (ruby-2.7.1).
 </div>
 
+    </div>
   </body>
 </html>
