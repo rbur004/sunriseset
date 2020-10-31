@@ -1,6 +1,6 @@
 # sunriseset
 
-* http://rbur004.github.com/sunriseset/
+* http://rbur004.github.io/sunriseset/
 * Source https://github.com/rbur004/sunriseset
 * Gem https://rubygems.org/gems/sunriseset
 
