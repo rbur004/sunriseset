@@ -2,8 +2,7 @@
 .yardoc
 .yard
 doc/
-gitdoc/*
-gitdoc/.DS_Store
+gitdoc/
 pkg/
 History.txt
 lib/similar_src
